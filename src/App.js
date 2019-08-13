@@ -1,10 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import SearchInput from "./components/SearchInput";
+import ListCard from "./components/ListCard";
+import RecommendCard from "./components/RecommendCard";
 
 function App() {
   return (
     <div className="App">
+      <SearchInput />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +24,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <ul>
+        <ListCard />
+        <RecommendCard />
+      </ul>
     </div>
   );
 }
