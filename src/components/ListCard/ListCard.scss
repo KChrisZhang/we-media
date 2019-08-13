@@ -1,0 +1,36 @@
+.List-card {
+  display: flex;
+  align-items: center;
+  height: 8rem;
+  border-bottom: 1px solid #cccccc;
+
+  .item {
+    &-index {
+      margin: 0 1rem;
+      font-size: 1.4rem;
+      color: #333333;
+    }
+    &-logo {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 1rem;
+      background-color: pink;
+      margin-right: 0.6rem;
+    }
+    &-name {
+      font-size: 1.4rem;
+    }
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 5rem;
+    }
+  }
+
+  &:nth-child(2n) {
+    .item-logo {
+      border-radius: 100%;
+    }
+  }
+}

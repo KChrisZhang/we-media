@@ -1,32 +1,34 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
-import SearchInput from "./components/SearchInput";
-import ListCard from "./components/ListCard";
-import RecommendCard from "./components/RecommendCard";
+import ListCard from "./components/ListCard/ListCard.js";
+import SearchInput from "./components/SearchInput/SearchInput.js";
+import RecommendCard from "./components/RecommendCard/RecommendCard.js";
 
 function App() {
   return (
     <div className="App">
-      <SearchInput />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <SearchInput />
       </header>
-      <ul>
+      <section className="App-recommend">
+        <h2 className="App-recommend-title">推介</h2>
+        <ul className="App-recommend-list">
+          <RecommendCard />
+          <RecommendCard />
+          <RecommendCard />
+          <RecommendCard />
+          <RecommendCard />
+          <RecommendCard />
+        </ul>
+      </section>
+      <ul className="App-list">
         <ListCard />
-        <RecommendCard />
+        <ListCard />
+        <ListCard />
+        <ListCard />
+        <ListCard />
+        <ListCard />
       </ul>
     </div>
   );

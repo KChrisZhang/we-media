@@ -1,0 +1,15 @@
+.Recommend {
+  &-card {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &-logo {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 1rem;
+    background: yellowgreen;
+  }
+}
