@@ -4,12 +4,22 @@
 
     &:last-child {
       margin-right: 0;
+      .Recommend-logo {
+        margin-right: 1rem;
+      }
     }
   }
   &-logo {
+    display: block;
     width: 8rem;
     height: 8rem;
     border-radius: 1rem;
-    background: yellowgreen;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  &-name {
+    margin: 0.5rem 0;
+  }
+  &-category {
+    color: #949494;
   }
 }

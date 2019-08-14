@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.scss";
+import * as Processors from "./processors.js";
 
 import appListData from "./mock/appListData.json";
 import recomendData from "./mock/recomendData.json";
@@ -10,9 +11,11 @@ import ListCard from "./components/ListCard/ListCard.js";
 import SearchInput from "./components/SearchInput/SearchInput.js";
 import RecommendCard from "./components/RecommendCard/RecommendCard.js";
 
-const APP_LIST = appListData["feed"]["entry"];
-const RECOMMEND_LIST = recomendData["feed"]["entry"];
-
+const APP_LIST = Processors.handleAppList(appListData["feed"]["entry"]);
+const RECOMMEND_LIST = Processors.handleRecommendList(
+  recomendData["feed"]["entry"]
+);
+console.log(APP_LIST);
 class App extends Component {
   constructor(props) {
     super(props);
@@ -48,8 +51,8 @@ class App extends Component {
     });
   }
   async componentDidMount() {
-    // console.log(appListData);
-    // console.log(recomendData);
+    console.log(appListData);
+    console.log(recomendData);
     console.log(lookUpData);
     this.getAppList();
     this.getRecommendList();
@@ -72,10 +75,10 @@ class App extends Component {
   }
   render() {
     const recommendList = this.state.recommendList.map((item, index) => {
-      return <RecommendCard key={index} />;
+      return <RecommendCard key={index} info={item} />;
     });
     const appList = this.state.appList.map((item, index) => {
-      return <ListCard key={index} index={index} />;
+      return <ListCard key={index} index={index} info={item} />;
     });
 
     return (
