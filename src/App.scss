@@ -1,4 +1,7 @@
 .App-header {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,18 +15,19 @@
 
 .App-recommend {
   width: 100%;
-  box-sizing: border-box;
-}
-.App-recommend-title {
-  padding: 1rem;
-}
-.App-recommend-list {
-  display: flex;
-  width: 100%;
-  padding: 0 1rem 1rem;
-  box-sizing: border-box;
-  overflow-x: auto;
-  overflow-y: hidden;
+  margin-top: 4rem;
+
+  &-title {
+    padding: 1rem;
+  }
+  &-list {
+    display: flex;
+    width: 100%;
+    padding: 0 1rem 1rem;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 }
 
 .App-list {
@@ -32,4 +36,9 @@
   box-sizing: border-box;
   border-top: 1px solid #cccccc;
   margin-top: 1rem;
+}
+
+.App-load-more {
+  text-align: center;
+  padding: 1rem 0;
 }
