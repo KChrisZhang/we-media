@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ListCard.scss";
+import Rate from "../Rate/Rate.js";
 
 class ListCard extends Component {
   render() {
@@ -15,20 +16,7 @@ class ListCard extends Component {
           <h3 className="item-name">{this.props.info.name}</h3>
           <p className="item-category">{this.props.info.category}</p>
           <div className="item-rate">
-            <div className="item-stars">
-              {this.props.info.stars.length > 0 &&
-                this.props.info.stars.map((item, index) => {
-                  return (
-                    <img
-                      className="item-star-active"
-                      key={index}
-                      src="assets/star_active.png"
-                      alt="assets/star_active.png"
-                    />
-                  );
-                })}
-            </div>
-            ({this.props.info.comments})
+            <Rate stars={this.props.info.stars} />({this.props.info.comments})
           </div>
         </div>
       </li>

@@ -6,7 +6,7 @@ import appListData from "./mock/appListData.json";
 import recomendData from "./mock/recomendData.json";
 import lookUpData from "./mock/lookUp.json";
 
-// import Spinner from "./components/Spinner/Spinner.js";
+import Spinner from "./components/Spinner/Spinner.js";
 import ListCard from "./components/ListCard/ListCard.js";
 import SearchInput from "./components/SearchInput/SearchInput.js";
 import RecommendCard from "./components/RecommendCard/RecommendCard.js";
@@ -15,7 +15,7 @@ const APP_LIST = Processors.handleAppList(appListData["feed"]["entry"]);
 const RECOMMEND_LIST = Processors.handleRecommendList(
   recomendData["feed"]["entry"]
 );
-console.log(APP_LIST);
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -95,12 +95,13 @@ class App extends Component {
         </ul>
         {this.state.hasMoreAppList && (
           <div className="App-load-more" ref="wrapper">
-            加载更多
+            <Spinner />
           </div>
         )}
         {!this.state.hasMoreAppList && (
-          <div className="App-load-more">数据已全部加载</div>
+          <div className="App-load-more">数据已全部加载完毕。</div>
         )}
+        <footer className="App-footer">Copyright 2008 Apple Inc.</footer>
       </div>
     );
   }

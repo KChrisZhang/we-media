@@ -3,15 +3,11 @@ export function handleAppList(list = []) {
   return list.map(item => {
     let random = Math.floor(Math.random() * 100);
     let stars = Math.ceil(random / 20);
-    let list = [];
-    for (let i = 0; i < stars; i++) {
-      list.push(i);
-    }
     return {
       name: item["im:name"]["label"],
       image: item["im:image"][1]["label"],
       category: item["category"]["attributes"]["label"],
-      stars: list,
+      stars,
       comments: random
     };
   });

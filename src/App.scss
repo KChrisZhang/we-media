@@ -2,6 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,4 +42,12 @@
 .App-load-more {
   text-align: center;
   padding: 1rem 0;
+}
+
+.App-footer {
+  color: #949494;
+  line-height: 3rem;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-top: 1px solid #cccccc;
 }
