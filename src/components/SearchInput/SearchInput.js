@@ -1,19 +1,30 @@
 import React, { Component } from "react";
 import "./SearchInput.scss";
+import Store from "../../Store.js";
 
 class SearchInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ""
+      value: Store.getState()
     };
     this.handleInput = this.handleInput.bind(this);
   }
   handleInput(event) {
-    this.setState({
-      value: event.target.value
-    });
-    console.log("handleInput", this.state.value);
+    const self = this;
+    const value = event.target.value;
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.timer = setTimeout(() => {
+      self.setState({ value });
+      Store.dispatch({
+        type: "UPDATE_SEARCH",
+        value
+      });
+      clearTimeout(self.timer);
+      self.timer = null;
+    }, 100);
   }
   render() {
     return (

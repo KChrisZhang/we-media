@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./App.scss";
+import Store from "./Store.js";
 import * as Processors from "./processors.js";
 
 import appListData from "./mock/appListData.json";
 import recomendData from "./mock/recomendData.json";
-import lookUpData from "./mock/lookUp.json";
+// import lookUpData from "./mock/lookUp.json";
 
 import Spinner from "./components/Spinner/Spinner.js";
 import ListCard from "./components/ListCard/ListCard.js";
@@ -25,7 +26,8 @@ class App extends Component {
       appList: [],
       recommendList: [],
       isLoading: true,
-      hasMoreAppList: true
+      hasMoreAppList: true,
+      searchValue: Store.getState()
     };
   }
   async getAppList() {
@@ -51,11 +53,15 @@ class App extends Component {
     });
   }
   async componentDidMount() {
-    console.log(appListData);
-    console.log(recomendData);
-    console.log(lookUpData);
     this.getAppList();
     this.getRecommendList();
+
+    Store.subscribe(() => {
+      this.setState({
+        searchValue: Store.getState()
+      });
+      // refresh recommend section, app list
+    });
 
     let timerId = null;
     const self = this;
